@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version:6.2
 
 import PackageDescription
 
@@ -32,11 +32,11 @@ let package = Package(
         .library(name: .localeStandard, targets: [.localeStandard])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-standards/swift-standards", from: "0.1.0"),
-        .package(url: "https://github.com/swift-standards/swift-bcp-47", from: "0.1.0"),
-        .package(url: "https://github.com/swift-standards/swift-iso-639", from: "0.1.0"),
-        .package(url: "https://github.com/swift-standards/swift-iso-3166", from: "0.1.0"),
-        .package(url: "https://github.com/swift-standards/swift-iso-15924", from: "0.1.0"),
+        .package(url: "https://github.com/swift-standards/swift-standards", from: "0.10.0"),
+        .package(url: "https://github.com/swift-standards/swift-bcp-47", from: "0.1.3"),
+        .package(url: "https://github.com/swift-standards/swift-iso-639", from: "0.2.2"),
+        .package(url: "https://github.com/swift-standards/swift-iso-3166", from: "0.2.2"),
+        .package(url: "https://github.com/swift-standards/swift-iso-15924", from: "0.1.2"),
     ],
     targets: [
         .target(
