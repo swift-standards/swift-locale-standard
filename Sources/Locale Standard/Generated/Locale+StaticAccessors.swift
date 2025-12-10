@@ -3,8 +3,8 @@
 //
 // Static accessors for common locales
 
-import ISO_3166
 import ISO_15924
+import ISO_3166
 
 extension Locale {
     // MARK: - Language-Only Locales (ISO 639-1)

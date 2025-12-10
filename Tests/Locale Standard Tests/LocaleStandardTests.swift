@@ -3,9 +3,10 @@
 //
 // Tests for cross-standard conversions (placeholder)
 
-import Testing
-@testable import Locale_Standard
 import Locale
+import Testing
+
+@testable import Locale_Standard
 
 @Suite
 struct `Locale Standard - Cross-Format Conversion Tests (Placeholder)` {

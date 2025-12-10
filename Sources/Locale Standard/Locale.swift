@@ -3,10 +3,10 @@
 //
 // A locale combining language, region, and script
 
-import ISO_639
-import ISO_3166
-import ISO_15924
 import BCP_47
+import ISO_15924
+import ISO_3166
+import ISO_639
 
 /// A locale combining language, region, and script.
 ///
