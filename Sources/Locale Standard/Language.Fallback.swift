@@ -560,6 +560,6 @@ extension Language {
         "yo": [.en],
 
         // Zulu → English
-        "zu": [.en],
+        "zu": [.en]
     ]
 }
