@@ -7,4 +7,4 @@
 @_exported import ISO_15924
 @_exported import ISO_3166
 @_exported import ISO_639
-@_exported import Standards
+@_exported import Standard_Library_Extensions

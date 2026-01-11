@@ -12,12 +12,12 @@ extension String {
 
 extension Target.Dependency {
     static var localeStandard: Self { .target(name: .localeStandard) }
-    static var standards: Self { .product(name: "Standards", package: "swift-standards") }
+    static var standards: Self { .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions") }
     static var bcp47: Self { .product(name: "BCP 47", package: "swift-bcp-47") }
     static var iso639: Self { .product(name: "ISO 639", package: "swift-iso-639") }
     static var iso3166: Self { .product(name: "ISO 3166", package: "swift-iso-3166") }
     static var iso15924: Self { .product(name: "ISO 15924", package: "swift-iso-15924") }
-    static var standardsTestSupport: Self { .product(name: "StandardsTestSupport", package: "swift-standards") }
+    static var standardsTestSupport: Self { .product(name: "Test Primitives", package: "swift-test-primitives") }
 }
 
 let package = Package(
@@ -32,11 +32,12 @@ let package = Package(
         .library(name: .localeStandard, targets: [.localeStandard])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-standards/swift-standards", from: "0.10.0"),
-        .package(url: "https://github.com/swift-standards/swift-bcp-47", from: "0.1.3"),
-        .package(url: "https://github.com/swift-standards/swift-iso-639", from: "0.2.2"),
-        .package(url: "https://github.com/swift-standards/swift-iso-3166", from: "0.2.2"),
-        .package(url: "https://github.com/swift-standards/swift-iso-15924", from: "0.1.2"),
+        .package(path: "../../swift-primitives/swift-standard-library-extensions"),
+        .package(path: "../../swift-primitives/swift-test-primitives"),
+        .package(path: "../swift-bcp-47"),
+        .package(path: "../swift-iso-639"),
+        .package(path: "../swift-iso-3166"),
+        .package(path: "../swift-iso-15924"),
     ],
     targets: [
         .target(
