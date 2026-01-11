@@ -38,10 +38,10 @@ import ISO_639
 ///
 /// - `Locale` is the complete locale representation (language + region + script)
 /// - For pure language without region/script, use `Language`
-/// - Interoperates with `BCP_47.LanguageTag` for standards compliance
+/// - Interoperates with `BCP47.LanguageTag` for standards compliance
 ///
 /// - SeeAlso: ``Language`` for pure language identifiers
-/// - SeeAlso: ``BCP_47.LanguageTag`` for the underlying BCP 47 standard
+/// - SeeAlso: ``BCP47.LanguageTag`` for the underlying BCP 47 standard
 public struct Locale: Sendable, Equatable, Hashable {
     /// The language component
     public let language: Language
@@ -85,7 +85,7 @@ extension Locale {
     ///
     /// - Parameter tag: A BCP 47 language tag
     /// - Throws: If the language tag cannot be converted to a locale
-    public init(_ tag: BCP_47.LanguageTag) throws {
+    public init(_ tag: BCP47.LanguageTag) throws {
         // Extract language
         let language: Language
         switch tag.language {
@@ -118,7 +118,7 @@ extension Locale {
     ///
     /// - Returns: A BCP 47 language tag representing this locale
     /// - Throws: If the locale cannot be converted to a valid BCP 47 tag
-    public func languageTag() throws -> BCP_47.LanguageTag {
+    public func languageTag() throws -> BCP47.LanguageTag {
         var tagString = language.code.description
 
         if let script = script {
@@ -129,7 +129,7 @@ extension Locale {
             tagString += "-\(region.value.uppercased())"
         }
 
-        return try BCP_47.LanguageTag(tagString)
+        return try BCP47.LanguageTag(tagString)
     }
 }
 
@@ -163,7 +163,7 @@ extension Locale: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)
-        let tag = try BCP_47.LanguageTag(string)
+        let tag = try BCP47.LanguageTag(string)
         try self.init(tag)
     }
 }
@@ -176,7 +176,7 @@ extension Locale: ExpressibleByStringLiteral {
     /// - Warning: This will crash at runtime if the string is not a valid BCP 47 tag
     public init(stringLiteral value: String) {
         // swiftlint:disable:next force_try
-        let tag = try! BCP_47.LanguageTag(value)
+        let tag = try! BCP47.LanguageTag(value)
         // swiftlint:disable:next force_try
         try! self.init(tag)
     }
