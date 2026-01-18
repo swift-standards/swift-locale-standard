@@ -29,32 +29,24 @@ let package = Package(
         .watchOS(.v26)
     ],
     products: [
-        .library(name: .localeStandard, targets: [.localeStandard])
+        .library(name: "Locale Standard", targets: ["Locale Standard"])
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../../swift-primitives/swift-test-primitives"),
         .package(path: "../swift-bcp-47"),
         .package(path: "../swift-iso-639"),
         .package(path: "../swift-iso-3166"),
-        .package(path: "../swift-iso-15924"),
+        .package(path: "../swift-iso-15924")
     ],
     targets: [
         .target(
-            name: .localeStandard,
+            name: "Locale Standard",
             dependencies: [
                 .standards,
                 .bcp47,
                 .iso639,
                 .iso3166,
-                .iso15924,
-            ]
-        ),
-        .testTarget(
-            name: .localeStandard.tests,
-            dependencies: [
-                .localeStandard,
-                .standardsTestSupport
+                .iso15924
             ]
         )
     ],
