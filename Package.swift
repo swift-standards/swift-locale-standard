@@ -32,12 +32,12 @@ let package = Package(
         .library(name: .localeStandard, targets: [.localeStandard])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-primitives/swift-standard-library-extensions.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-primitives/swift-test-primitives.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-bcp-47.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-iso-639.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-iso-3166.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-iso-15924.git", from: "0.0.1"),
+        .package(path: "../../swift-primitives/swift-standard-library-extensions"),
+        .package(path: "../../swift-primitives/swift-test-primitives"),
+        .package(path: "../swift-bcp-47"),
+        .package(path: "../swift-iso-639"),
+        .package(path: "../swift-iso-3166"),
+        .package(path: "../swift-iso-15924"),
     ],
     targets: [
         .target(
