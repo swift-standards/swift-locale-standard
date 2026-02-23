@@ -3,7 +3,7 @@
 //
 // Tests for cross-standard conversions (placeholder)
 
-import Locale
+import Locale_Primitives
 import Testing
 
 @testable import Locale_Standard
