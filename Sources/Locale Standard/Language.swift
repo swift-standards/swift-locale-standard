@@ -73,7 +73,7 @@ public struct Language: Sendable, Equatable, Hashable {
     ///
     /// - Parameter string: Language code string
     /// - Throws: `ISO_639.Error` if the code is invalid
-    public init(_ string: some StringProtocol) throws {
+    public init(_ string: some StringProtocol) throws(ISO_639.Error) {
         self.code = try ISO_639.LanguageCode(string)
     }
 }

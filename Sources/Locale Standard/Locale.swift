@@ -85,7 +85,7 @@ extension Locale {
     ///
     /// - Parameter tag: A BCP 47 language tag
     /// - Throws: If the language tag cannot be converted to a locale
-    public init(_ tag: BCP47.LanguageTag) throws {
+    public init(_ tag: BCP47.LanguageTag) throws(ISO_639.Error) {
         // Extract language
         let language: Language
         switch tag.language {
@@ -118,7 +118,7 @@ extension Locale {
     ///
     /// - Returns: A BCP 47 language tag representing this locale
     /// - Throws: If the locale cannot be converted to a valid BCP 47 tag
-    public func languageTag() throws -> BCP47.LanguageTag {
+    public func languageTag() throws(BCP47.Error) -> BCP47.LanguageTag {
         var tagString = language.code.description
 
         if let script = script {
