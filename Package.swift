@@ -35,10 +35,10 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../swift-bcp-47"),
-        .package(path: "../swift-iso-639"),
-        .package(path: "../swift-iso-3166"),
-        .package(path: "../swift-iso-15924")
+        .package(path: "../../swift-ietf/swift-bcp-47"),
+        .package(path: "../../swift-iso/swift-iso-639"),
+        .package(path: "../../swift-iso/swift-iso-3166"),
+        .package(path: "../../swift-iso/swift-iso-15924")
     ],
     targets: [
         .target(
