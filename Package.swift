@@ -34,11 +34,11 @@ let package = Package(
         .library(name: "Locale Standard", targets: ["Locale Standard"])
     ],
     dependencies: [
-        .package(path: "../../swift-primitives/swift-standard-library-extensions"),
-        .package(path: "../../swift-ietf/swift-bcp-47"),
-        .package(path: "../../swift-iso/swift-iso-639"),
-        .package(path: "../../swift-iso/swift-iso-3166"),
-        .package(path: "../../swift-iso/swift-iso-15924")
+        .package(url: "https://github.com/swift-primitives/swift-standard-library-extensions.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-bcp-47.git", branch: "main"),
+        .package(url: "https://github.com/swift-iso/swift-iso-639.git", branch: "main"),
+        .package(url: "https://github.com/swift-iso/swift-iso-3166.git", branch: "main"),
+        .package(url: "https://github.com/swift-iso/swift-iso-15924.git", branch: "main")
     ],
     targets: [
         .target(
