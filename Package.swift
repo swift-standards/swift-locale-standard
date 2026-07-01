@@ -19,7 +19,6 @@ extension Target.Dependency {
     static var iso639: Self { .product(name: "ISO 639", package: "swift-iso-639") }
     static var iso3166: Self { .product(name: "ISO 3166", package: "swift-iso-3166") }
     static var iso15924: Self { .product(name: "ISO 15924", package: "swift-iso-15924") }
-    static var standardsTestSupport: Self { .product(name: "Test Primitives", package: "swift-test-primitives") }
 }
 
 let package = Package(
