@@ -1,6 +1,6 @@
 # .github/metadata.yaml
 # Triaged by AI-assisted bulk pass (2026-04-29).
-description: "Locale meta-package combining ISO 639, ISO 3166, and BCP 47 in Swift."
+description: "Cross-format conversions between BCP 47, ISO 639, ISO 3166, ISO 4217, and ISO 15924 locale standards for Swift."
 topics:
   - standards
   - locale
