@@ -3,7 +3,6 @@
 //
 // Tests for cross-standard conversions (placeholder)
 
-import Locale_Primitives
 import Testing
 
 @testable import Locale_Standard
@@ -13,7 +12,7 @@ struct `Locale Standard - Cross-Format Conversion Tests (Placeholder)` {
 
     @Test
     func `Placeholder test`() {
-        let locale = Locale()
+        let locale = Locale(language: .en)
         #expect(locale == locale)
     }
 
