@@ -2,8 +2,6 @@
 
 import PackageDescription
 
-
-
 extension String {
     static let localeStandard: Self = "Locale Standard"
 }
@@ -53,9 +51,9 @@ let package = Package(
         .testTarget(
             name: "Locale Standard Tests",
             dependencies: [
-                "Locale Standard",
+                "Locale Standard"
             ]
-        ),
+        )
     ],
     swiftLanguageModes: [.v6]
 )
@@ -71,7 +69,7 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableExperimentalFeature("Lifetimes"),
         .enableExperimentalFeature("SuppressedAssociatedTypes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
-        .enableUpcomingFeature("LifetimeDependence"),
+        .enableUpcomingFeature("LifetimeDependence")
     ]
 
     let package: [SwiftSetting] = []

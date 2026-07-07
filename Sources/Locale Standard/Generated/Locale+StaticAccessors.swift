@@ -3,6 +3,12 @@
 //
 // Static accessors for common locales
 
+// swift-format-ignore-file
+// Generated, spec-mirroring accessor names (BCP-47/ISO locale identifiers,
+// e.g. `en_US`) - AlwaysUseLowerCamelCase would break the direct mirroring to
+// the specification identifier ([API-NAME-003]); precedent: containerization/
+// container .pb.swift/.grpc.swift generated-file ignores.
+
 import ISO_15924
 import ISO_3166
 
