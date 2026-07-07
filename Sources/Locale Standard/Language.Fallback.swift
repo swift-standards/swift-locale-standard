@@ -560,6 +560,7 @@ extension Language {
         "yo": [.en],
 
         // Zulu → English
+        // swiftlint:disable:next trailing_comma
         "zu": [.en],
     ]
 }
