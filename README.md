@@ -1,5 +1,7 @@
 # Locale Standard
 
+![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
+
 Unified locale standard providing cross-format conversions between locale standards in pure Swift.
 
 ## Overview
