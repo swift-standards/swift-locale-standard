@@ -73,6 +73,10 @@ public struct Language: Sendable, Equatable, Hashable {
     ///
     /// - Parameter string: Language code string
     /// - Throws: `ISO_639.Error` if the code is invalid
+    // swift-linter:disable:next throwing wrapper init
+    // REASON: pure type-bridge forwarder — `ISO_639.LanguageCode`'s validating
+    // init owns the invariant; this wraps it in the package's own `Language`
+    // type with no additional validation.
     public init(_ string: some StringProtocol) throws(ISO_639.Error) {
         self.code = try ISO_639.LanguageCode(string)
     }

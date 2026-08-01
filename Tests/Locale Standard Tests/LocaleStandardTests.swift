@@ -9,11 +9,21 @@ import Testing
 
 @Suite
 struct `Locale Standard - Cross-Format Conversion Tests (Placeholder)` {
+    @Suite
+    struct Unit {
+        @Test
+        func `Placeholder test`() {
+            let locale = Locale(language: .en)
+            #expect(locale == locale)
+        }
+    }
 
-    @Test
-    func `Placeholder test`() {
-        let locale = Locale(language: .en)
-        #expect(locale == locale)
+    @Suite
+    struct `Edge Case` {
+    }
+
+    @Suite
+    struct Integration {
     }
 
     // Future tests when individual standards are implemented:
