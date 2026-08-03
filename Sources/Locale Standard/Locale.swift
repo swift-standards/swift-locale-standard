@@ -91,6 +91,7 @@ extension Locale {
         switch tag.language {
         case .iso639(let code):
             language = Language(code)
+
         case .reserved(let code):
             // Try to parse reserved codes as ISO 639
             let languageCode = try ISO_639.LanguageCode(code)
@@ -105,6 +106,7 @@ extension Locale {
             switch region {
             case .alpha2(let alpha2):
                 self.region = alpha2
+
             case .numeric:
                 // Numeric regions not directly supported in Locale
                 self.region = nil
@@ -121,11 +123,11 @@ extension Locale {
     public func languageTag() throws(BCP47.Error) -> BCP47.LanguageTag {
         var tagString = language.code.description
 
-        if let script = script {
+        if let script {
             tagString += "-\(script.value)"
         }
 
-        if let region = region {
+        if let region {
             tagString += "-\(region.value.uppercased())"
         }
 
@@ -140,11 +142,11 @@ extension Locale: CustomStringConvertible {
     public var description: String {
         var result = language.description
 
-        if let script = script {
+        if let script {
             result += "-\(script.value)"
         }
 
-        if let region = region {
+        if let region {
             result += "-\(region.value.uppercased())"
         }
 
