@@ -1,8 +1,3 @@
-// exports.swift
-// Locale Standard
-//
-// Re-exports of underlying standards
-
 @_exported import BCP_47
 @_exported import ISO_15924
 @_exported import ISO_3166
