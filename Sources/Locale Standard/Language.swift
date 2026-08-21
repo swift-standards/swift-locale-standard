@@ -94,12 +94,12 @@ extension Language: CustomStringConvertible {
 // MARK: - Codable
 
 extension Language: Codable {
-    public func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode(code)
     }
 
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
         self.code = try container.decode(ISO_639.LanguageCode.self)
     }
