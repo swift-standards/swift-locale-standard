@@ -2,25 +2,6 @@
 
 import PackageDescription
 
-extension String {
-    static let localeStandard: Self = "Locale Standard"
-}
-
-extension String {
-    var tests: Self { self + " Tests" }
-}
-
-extension Target.Dependency {
-    static var localeStandard: Self { .target(name: .localeStandard) }
-    static var standards: Self {
-        .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions")
-    }
-    static var bcp47: Self { .product(name: "BCP 47", package: "swift-bcp-47") }
-    static var iso639: Self { .product(name: "ISO 639", package: "swift-iso-639") }
-    static var iso3166: Self { .product(name: "ISO 3166", package: "swift-iso-3166") }
-    static var iso15924: Self { .product(name: "ISO 15924", package: "swift-iso-15924") }
-}
-
 let package = Package(
     name: "swift-locale-standard",
     platforms: [
@@ -46,17 +27,17 @@ let package = Package(
         .target(
             name: "Locale Standard",
             dependencies: [
-                .standards,
-                .bcp47,
-                .iso639,
-                .iso3166,
-                .iso15924,
+                .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions"),
+                .product(name: "BCP 47", package: "swift-bcp-47"),
+                .product(name: "ISO 639", package: "swift-iso-639"),
+                .product(name: "ISO 3166", package: "swift-iso-3166"),
+                .product(name: "ISO 15924", package: "swift-iso-15924"),
             ]
         ),
         .testTarget(
             name: "Locale Standard Tests",
             dependencies: [
-                "Locale Standard"
+                .target(name: "Locale Standard")
             ]
         ),
     ],
