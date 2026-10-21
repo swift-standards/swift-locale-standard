@@ -109,9 +109,11 @@ extension Locale: Codable {
 extension Locale: ExpressibleByStringLiteral {
 
     public init(stringLiteral value: String) {
-
-        let tag = try! BCP47.LanguageTag(value)
-
-        try! self.init(tag)
+        do {
+            let tag = try BCP47.LanguageTag(value)
+            try self.init(tag)
+        } catch {
+            preconditionFailure("Invalid locale string literal \"\(value)\": \(error)")
+        }
     }
 }

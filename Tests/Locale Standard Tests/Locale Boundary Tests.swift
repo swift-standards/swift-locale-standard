@@ -1,7 +1,8 @@
+import Testing
+
+import struct Foundation.Data
 import class Foundation.JSONDecoder
 import class Foundation.JSONEncoder
-import struct Foundation.Data
-import Testing
 
 @testable import Locale_Standard
 
