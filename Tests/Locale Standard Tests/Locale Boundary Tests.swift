@@ -34,7 +34,7 @@ struct `Locale boundaries` {
 
     @Test
     func `decoding an invalid tag throws`() {
-        #expect(throws: (any Error).self) {
+        #expect(throws: (any Swift.Error).self) {
             try JSONDecoder().decode(Locale.self, from: Data(#""not a tag!""#.utf8))
         }
     }
@@ -49,7 +49,7 @@ struct `Language boundaries` {
 
     @Test(arguments: ["", "e", "english", "e1"])
     func `malformed codes are rejected`(code: String) {
-        #expect(throws: (any Error).self) { try Language(code) }
+        #expect(throws: (any Swift.Error).self) { try Language(code) }
     }
 
     @Test
