@@ -30,7 +30,11 @@ public struct Locale: Sendable, Equatable, Hashable {
 
 extension Locale {
 
-    public init(_ tag: BCP47.LanguageTag) throws(ISO_639.Error) {
+    /// Creates the locale a language tag names.
+    ///
+    /// Throws when the tag carries what a `Locale` cannot: a numeric region, variants, extensions or
+    /// private use subtags. Dropping them would name a different locale.
+    public init(_ tag: BCP47.LanguageTag) throws(Locale.Error) {
 
         let language: Language
         switch tag.language {
@@ -38,26 +42,41 @@ extension Locale {
             language = Language(code)
 
         case .reserved(let code):
+            do throws(ISO_639.Error) {
+                language = Language(try ISO_639.LanguageCode(code))
+            } catch {
+                throw .language(error)
+            }
+        }
 
-            let languageCode = try ISO_639.LanguageCode(code)
-            language = Language(languageCode)
+        let region: ISO_3166.Alpha2?
+        switch tag.region {
+        case .none:
+            region = nil
+
+        case .alpha2(let alpha2):
+            region = alpha2
+
+        case .numeric(let numeric):
+            throw .unsupportedRegion(numeric.value)
+
+        case .area(let area):
+            throw .unsupportedRegion(area.value)
+        }
+
+        guard tag.variants.isEmpty else {
+            throw .unsupportedVariants(tag.variants)
+        }
+        guard tag.extensions.isEmpty else {
+            throw .unsupportedExtensions(tag.extensions)
+        }
+        guard tag.privateUse.isEmpty else {
+            throw .unsupportedPrivateUse(tag.privateUse)
         }
 
         self.language = language
         self.script = tag.script
-
-        if let region = tag.region {
-            switch region {
-            case .alpha2(let alpha2):
-                self.region = alpha2
-
-            case .numeric, .area:
-
-                self.region = nil
-            }
-        } else {
-            self.region = nil
-        }
+        self.region = region
     }
 
     public func languageTag() throws(BCP47.Error) -> BCP47.LanguageTag {

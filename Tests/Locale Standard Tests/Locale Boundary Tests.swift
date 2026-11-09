@@ -36,6 +36,31 @@ extension `Locale Boundary Tests` {
         }
 
         @Test
+        func `a numeric region is rejected instead of dropped`() throws {
+            let tag = try BCP47.LanguageTag("es-419")
+            #expect(throws: Locale.Error.unsupportedRegion("419")) { try Locale(tag) }
+        }
+
+        @Test
+        func `variants are rejected instead of dropped`() throws {
+            let tag = try BCP47.LanguageTag("de-DE-1901")
+            #expect(throws: Locale.Error.unsupportedVariants(["1901"])) { try Locale(tag) }
+        }
+
+        @Test(arguments: ["en-US-u-ca-gregory", "en-x-private"])
+        func `extensions and private use are rejected instead of dropped`(tag: String) throws {
+            let tag = try BCP47.LanguageTag(tag)
+            #expect(throws: Locale.Error.self) { try Locale(tag) }
+        }
+
+        @Test
+        func `decoding a tag with a numeric region throws`() {
+            #expect(throws: (any Swift.Error).self) {
+                try JSONDecoder().decode(Locale.self, from: Data(#""es-419""#.utf8))
+            }
+        }
+
+        @Test
         func `decoding an invalid tag throws`() {
             #expect(throws: (any Swift.Error).self) {
                 try JSONDecoder().decode(Locale.self, from: Data(#""not a tag!""#.utf8))
