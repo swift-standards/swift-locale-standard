@@ -51,7 +51,7 @@ extension Locale {
             case .alpha2(let alpha2):
                 self.region = alpha2
 
-            case .numeric:
+            case .numeric, .area:
 
                 self.region = nil
             }
