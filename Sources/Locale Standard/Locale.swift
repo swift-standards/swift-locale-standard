@@ -62,6 +62,9 @@ extension Locale {
 
         case .area(let area):
             throw .unsupportedRegion(area.value)
+
+        case .reserved(let code):
+            throw .unsupportedRegion(code)
         }
 
         guard tag.variants.isEmpty else {

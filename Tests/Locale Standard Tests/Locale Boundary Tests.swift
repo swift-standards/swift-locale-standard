@@ -41,6 +41,12 @@ extension `Locale Boundary Tests` {
             #expect(throws: Locale.Error.unsupportedRegion("419")) { try Locale(tag) }
         }
 
+        @Test(arguments: ["en-DG", "sq-XK"])
+        func `a reserved region is rejected instead of dropped`(text: String) throws {
+            let tag = try BCP47.LanguageTag(text)
+            #expect(throws: Locale.Error.unsupportedRegion(String(text.suffix(2)))) { try Locale(tag) }
+        }
+
         @Test
         func `variants are rejected instead of dropped`() throws {
             let tag = try BCP47.LanguageTag("de-DE-1901")

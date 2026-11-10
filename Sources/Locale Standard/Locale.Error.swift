@@ -12,7 +12,7 @@ extension Locale {
         /// The language subtag is not an ISO 639 code.
         case language(ISO_639.Error)
 
-        /// The region is a UN M.49 numeric code, such as `419` in `es-419`.
+        /// The region is not an ISO 3166 alpha-2 country code, such as `419` in `es-419` or `DG` in `en-DG`.
         case unsupportedRegion(String)
 
         /// The tag has variant subtags, such as `1901` in `de-DE-1901`.
