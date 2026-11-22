@@ -7,14 +7,14 @@ public struct Locale: Sendable, Equatable, Hashable {
 
     public let language: Language
 
-    public let region: ISO_3166.Alpha2?
+    public let region: ISO.`3166`.Alpha2?
 
-    public let script: ISO_15924.Alpha4?
+    public let script: ISO.`15924`.Alpha4?
 
     public init(
         language: Language,
-        region: ISO_3166.Alpha2? = nil,
-        script: ISO_15924.Alpha4? = nil
+        region: ISO.`3166`.Alpha2? = nil,
+        script: ISO.`15924`.Alpha4? = nil
     ) {
         self.language = language
         self.region = region
@@ -42,14 +42,14 @@ extension Locale {
             language = Language(code)
 
         case .reserved(let code):
-            do throws(ISO_639.Error) {
-                language = Language(try ISO_639.LanguageCode(code))
+            do throws(ISO.`639`.Error) {
+                language = Language(try ISO.`639`.LanguageCode(code))
             } catch {
                 throw .language(error)
             }
         }
 
-        let region: ISO_3166.Alpha2?
+        let region: ISO.`3166`.Alpha2?
         switch tag.region {
         case .none:
             region = nil

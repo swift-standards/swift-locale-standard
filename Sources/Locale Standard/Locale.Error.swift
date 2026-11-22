@@ -10,7 +10,7 @@ extension Locale {
     public enum Error: Swift::Error, Sendable, Equatable {
 
         /// The language subtag is not an ISO 639 code.
-        case language(ISO_639.Error)
+        case language(ISO.`639`.Error)
 
         /// The region is not an ISO 3166 alpha-2 country code, such as `419` in `es-419` or `DG` in `en-DG`.
         case unsupportedRegion(String)
