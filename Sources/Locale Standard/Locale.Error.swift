@@ -19,7 +19,7 @@ extension Locale {
         case unsupportedVariants([String])
 
         /// The tag has extensions, such as `u-ca-gregory`.
-        case unsupportedExtensions([BCP47.LanguageTag.Extension])
+        case unsupportedExtensions([BCP47.Tag.Extension])
 
         /// The tag has private use subtags, such as `x-private`.
         case unsupportedPrivateUse([String])

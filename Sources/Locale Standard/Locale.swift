@@ -34,7 +34,7 @@ extension Locale {
     ///
     /// Throws when the tag carries what a `Locale` cannot: a numeric region, variants, extensions or
     /// private use subtags. Dropping them would name a different locale.
-    public init(_ tag: BCP47.LanguageTag) throws(Locale.Error) {
+    public init(_ tag: BCP47.Tag) throws(Locale.Error) {
 
         let language: Language
         switch tag.language {
@@ -82,7 +82,7 @@ extension Locale {
         self.region = region
     }
 
-    public func languageTag() throws(BCP47.Error) -> BCP47.LanguageTag {
+    public func languageTag() throws(BCP47.Error) -> BCP47.Tag {
         var tagString = language.code.description
 
         if let script {
@@ -93,7 +93,7 @@ extension Locale {
             tagString += "-\(region.value.uppercased())"
         }
 
-        return try BCP47.LanguageTag(tagString)
+        return try BCP47.Tag(tagString)
     }
 }
 
@@ -123,7 +123,7 @@ extension Locale: Codable {
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)
-        let tag = try BCP47.LanguageTag(string)
+        let tag = try BCP47.Tag(string)
         try self.init(tag)
     }
 }
@@ -132,7 +132,7 @@ extension Locale: ExpressibleByStringLiteral {
 
     public init(stringLiteral value: String) {
         do {
-            let tag = try BCP47.LanguageTag(value)
+            let tag = try BCP47.Tag(value)
             try self.init(tag)
         } catch {
             preconditionFailure("Invalid locale string literal \"\(value)\": \(error)")

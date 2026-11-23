@@ -1,6 +1,6 @@
 # swift-locale-standard
 
-Use this package when you need a locale built from a language, an optional region and an optional script, read from or written as a BCP 47 tag such as `zh-Hans-CN`. Start from `Locale`, or from `Language` when you only need a language and its fallbacks. If you need the full BCP 47 grammar, such as variants and extensions, use `BCP47.LanguageTag` from swift-bcp-47.
+Use this package when you need a locale built from a language, an optional region and an optional script, read from or written as a BCP 47 tag such as `zh-Hans-CN`. Start from `Locale`, or from `Language` when you only need a language and its fallbacks. If you need the full BCP 47 grammar, such as variants and extensions, use `BCP47.Tag` from swift-bcp-47.
 
 ## Laws
 

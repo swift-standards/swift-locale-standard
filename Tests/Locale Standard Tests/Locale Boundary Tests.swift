@@ -37,25 +37,25 @@ extension `Locale Boundary Tests` {
 
         @Test
         func `a numeric region is rejected instead of dropped`() throws {
-            let tag = try BCP47.LanguageTag("es-419")
+            let tag = try BCP47.Tag("es-419")
             #expect(throws: Locale.Error.unsupportedRegion("419")) { try Locale(tag) }
         }
 
         @Test(arguments: ["en-DG", "sq-XK"])
         func `a reserved region is rejected instead of dropped`(text: String) throws {
-            let tag = try BCP47.LanguageTag(text)
+            let tag = try BCP47.Tag(text)
             #expect(throws: Locale.Error.unsupportedRegion(String(text.suffix(2)))) { try Locale(tag) }
         }
 
         @Test
         func `variants are rejected instead of dropped`() throws {
-            let tag = try BCP47.LanguageTag("de-DE-1901")
+            let tag = try BCP47.Tag("de-DE-1901")
             #expect(throws: Locale.Error.unsupportedVariants(["1901"])) { try Locale(tag) }
         }
 
         @Test(arguments: ["en-US-u-ca-gregory", "en-x-private"])
         func `extensions and private use are rejected instead of dropped`(tag: String) throws {
-            let tag = try BCP47.LanguageTag(tag)
+            let tag = try BCP47.Tag(tag)
             #expect(throws: Locale.Error.self) { try Locale(tag) }
         }
 
